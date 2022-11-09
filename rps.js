@@ -3,7 +3,9 @@ function getPlayerChoice () {
     let input = prompt("Rock, Paper, or Scissors?");
 
     //check for correct input
-    if((input.toLowerCase() != "rock") & (input.toLowerCase() != "paper") & (input.toLowerCase() != "scissors"))  {
+    if((input.toLowerCase() != "rock") & (input.toLowerCase() != "paper") & 
+        (input.toLowerCase() != "scissors"))  {
+
         alert("Input invalid");
     }
     return input.toLowerCase();
