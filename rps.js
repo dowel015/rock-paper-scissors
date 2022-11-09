@@ -1,9 +1,12 @@
 //get user input
-let input = prompt("Rock, Paper, or Scissors?");
+function getPlayerChoice () {
+    let input = prompt("Rock, Paper, or Scissors?");
 
-//check for correct input
-if((input.toLowerCase() != "rock") & (input.toLowerCase() != "paper") & (input.toLowerCase() != "scissors"))  {
-    alert("Input invalid");
+    //check for correct input
+    if((input.toLowerCase() != "rock") & (input.toLowerCase() != "paper") & (input.toLowerCase() != "scissors"))  {
+        alert("Input invalid");
+    }
+    return input.toLowerCase();
 }
 
 //get computer input
@@ -22,6 +25,44 @@ function getComputerChoice () {
     console.log(computerChoice);
     return computerChoice;
 }
-//play the game
+//play one round
+function playRound (playerSelection, computerSelection) {
+    if (playerSelection == "rock") {
+        if (computerSelection == "rock") {
+            let result = "You Tie! Rock ties Rock";
+        }
+        if (computerSelection == "paper") {
+            let result = "You Lose! Paper beats Rock";
+        }
+        if (computerSelection == "scissors") {
+            let result = "You Win! Rock beats Scissors";
+        }
+    }
+    if (playerSelection == "paper") {
+        if (computerSelection == "rock") {
+            let result = "You Win! Paper beats Rock";
+        }
+        if (computerSelection == "paper") {
+            let result = "You Tie! Paper ties Paper";
+        }
+        if (computerSelection == "scissors") {
+            let result = "You Lose! Scissors beats Paper";
+        }
+    }
+    if (playerSelection == "scissors") {
+        if (computerSelection == "rock") {
+            let result = "You Lose! Rock beats Scissors";
+        }
+        if (computerSelection == "paper") {
+            let result = "You Win! Scissors beats Paper";
+        }
+        if (computerSelection == "scissors") {
+            let result = "You Tie! Scissors ties Scissors";
+        }
+    }
+    return result;
+}
 
-getComputerChoice();
+const playerSelection = getPlayerChoice();
+const computerSelection = getComputerChoice();
+console.log(playRound(playerSelection, computerSelection));
